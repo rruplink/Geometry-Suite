@@ -1,1 +1,85 @@
 //Geometry Suite - C# Console Application Project
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Geometry_Suite
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the function you want to perform.");
+            Console.WriteLine("Enter A to calculate a Pythagorean Theorem equation.");
+            Console.WriteLine("Enter B to calculate a proportion.");
+            Console.WriteLine("Enter C to calculate slope formula.");
+            Console.WriteLine("Enter D to calculate other.");
+            Console.WriteLine("Enter Z to exit.");
+            Char command1 = Char.ToUpper(Convert.ToChar(Console.ReadLine()));
+            switch (command1)
+            {
+                case 'A':
+                    Pythagorean();
+                    break;
+            }
+            Console.WriteLine("Press enter to exit: ");
+            Console.ReadLine();
+        }
+
+
+        public static void Pythagorean()
+        {
+            double result = 0;
+            Console.WriteLine("Please enter the first side/first leg (a) (enter 0 if not known): ");
+            int firstside = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(value: "Please enter the second side/second leg (b) (enter 0 if not known): ");
+            int secondside = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter the third side/hypotenuse (c) (enter 0 if not known): ");
+            int thirdside = Convert.ToInt32(Console.ReadLine());
+            if (thirdside == 0)
+            {
+                ;
+                result = Math.Sqrt((firstside ^ 2) + (secondside ^ 2));
+                Console.WriteLine("The hypotenuse of the triangle is: ", result);
+            }
+            else if (secondside == 0)
+            {
+                result = Math.Sqrt((thirdside ^ 2) - (firstside ^ 2));
+                Console.WriteLine("The triangles second side is ", result);
+            }
+            else if (firstside == 0)
+            {
+                result = Math.Sqrt((thirdside ^ 2) - (secondside ^ 2));
+                Console.WriteLine("The triangles first side is ", result);
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input, please try again");
+            }
+            Console.WriteLine("The side you are seeking is {0}", result);
+        }
+
+        void proportion(string[] args)
+        {
+
+        }
+
+        void slope(string[] args)
+        {
+            double result = 0;
+            Console.WriteLine("Enter the first x value: ");
+            int firstx = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the second x value: ");
+            int secondx = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the first y value: ");
+            int firsty = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter the second y value: ");
+            int secondy = Convert.ToInt32(Console.ReadLine());
+            result = Math.Sqrt(((firstx - secondx) ^ 2) + ((firsty - secondy) ^ 2));
+            Console.WriteLine("The result is: ", result);
+        }
+    }
+}
